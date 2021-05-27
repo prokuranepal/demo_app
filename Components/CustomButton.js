@@ -4,14 +4,9 @@ const customButton =(props)=>(
     <View style={props.container_style}>
         <TouchableOpacity
           style={[styles.saveStyle,props.buttonStyle]}
-        
-          onPress={ props.pressHandler }
-       >
- 
+          onPress={ props.pressHandler }>
             <Text style={{color:props.color, fontSize:20}}> {props.title} </Text>
-            
       </TouchableOpacity>
- 
 </View>
 )
 

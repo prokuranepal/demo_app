@@ -14,17 +14,18 @@ const noteComponent = props => (
 
 const styles = StyleSheet.create({
     noteView:{
-
     padding:10,
     marginTop:20,
     borderLeftColor: "#464f7a",
     borderLeftWidth:10  ,
     backgroundColor:"#ebebec" 
     },
+
   textNormal: {
     fontSize:15, 
     color:"#575758", 
   },
+  
   textHeading: {
     fontSize:18, 
     color:"#575758", 
