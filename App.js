@@ -26,12 +26,21 @@ import HeaderText from './Components/HeaderText'
 import {Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions} from 'react-native/Libraries/NewAppScreen';
 import NoteComponent from './Components/NoteComponent';
 
-const Section = ({children, title}) : Node => {
+const App : () => Node = () => {
     const [modal,
         setmodal] = useState(false);
+        const isDarkMode =true
     // const isDarkMode = useColorScheme() === 'dark';
+    let backgroundCol=modal?"#d5e4ec":"#f3f3fb";
     return (
-        <View style={styles.sectionContainer}>
+        <SafeAreaView style={{...styles.mainContainer,backgroundColor:backgroundCol}}>
+        <StatusBar
+            barStyle={isDarkMode
+            ? 'light-content'
+            : 'dark-content'}/>
+
+        
+        <View style={{...styles.sectionContainer,backgroundColor:backgroundCol}}>
           <View> 
         <HeaderText>
         Let's know your dietary preferences.
@@ -48,13 +57,13 @@ const Section = ({children, title}) : Node => {
                         pressHandler={() => setmodal(true)} />
             <Modal
                 animationType={"slide"}
-                style={styles.modalContainer}
+         
                 transparent={false}
                 onRequestClose={() => setmodal(false)}
                 transparent={true}
                 visible={modal}>
-                <TouchableOpacity  style={{flex:1, backgroundColor:"#d5e4ec",opacity:0.5}} onPressOut={() => {setmodal(false)}}/>          
-                <View style={styles.modal}>
+                <TouchableOpacity  style={{flex:1,opacity:0}} onPressOut={() => {setmodal(false)}}/>          
+                <View style ={styles.modal}>
                     <HeaderText>
                       Gluten
                     </HeaderText>
@@ -65,60 +74,49 @@ const Section = ({children, title}) : Node => {
                       Menu items with gluten in them will show up in your search and menus. Move the slider to filter out or note gluten as an allergen.
                     </NoteComponent>
                     <View style={{flex:1, flexDirection:"row", justifyContent:"space-evenly"}}>
-                    <CustomButton container_style ={{...styles.buttonContainer, flex:3, alignItems:"flex-end", margin:10}} 
-                        buttonStyle={{backgroundColor:"#464f7a"}}
-                        data-test="saveComp" 
-                        title="save choice"  
-                        color="#fff"
-                        pressHandler={() => setmodal(false)} />
-                  <CustomButton container_style ={{...styles.buttonContainer,flex:1, alignItems:"flex-start"}} 
-                        buttonStyle={{backgroundColor:"#464f7a", paddingHorizontal:13,paddingVertical:10,borderRadius:40}}
-                        data-test="saveComp" 
-                        title="X"  
-                        color="#fff"
-                        pressHandler={() => setmodal(false)} />
-                        </View>
+                        <CustomButton container_style ={{...styles.buttonContainer, flex:3, alignItems:"flex-end", margin:10}} 
+                            buttonStyle={{backgroundColor:"#464f7a"}}
+                            data-test="saveComp" 
+                            title="save choice"  
+                            color="#fff"
+                            pressHandler={() => setmodal(false)} />
+                    <CustomButton container_style ={{...styles.buttonContainer,flex:1, alignItems:"flex-start"}} 
+                            buttonStyle={{backgroundColor:"#464f7a", paddingHorizontal:13,paddingVertical:10,borderRadius:40}}
+                            data-test="saveComp" 
+                            title="X"  
+                            color="#fff"
+                            pressHandler={() => setmodal(false)} />
+                    </View>
                 </View>
      
             </Modal>
         </View>
-    );
-};
 
-const App : () => Node = () => {
-    // const isDarkMode = useColorScheme() === 'dark';
-    const isDarkMode =true
-
-    return (
-        <SafeAreaView style={styles.mainContainer}>
-            <StatusBar
-                barStyle={isDarkMode
-                ? 'light-content'
-                : 'dark-content'}/>
-
-                <View
-                    style={styles.sectionContainer}>
-                    <Section></Section>
-
-                </View>
+        
         </SafeAreaView>
     );
 };
 
+// const App : () => Node = () => {
+//     // const isDarkMode = useColorScheme() === 'dark';
+//     const isDarkMode =true
+
+//     return (
+     
+//                     <Section/>
+
+//     );
+// };
+
 const styles = StyleSheet.create({
 
-    modalContainer: {
-        marginTop: 200,
-        borderRadius:20
-    },
     modal: {
-      marginTop:0,
       flex:2.8,
-      padding:40,
-      paddingBottom:0,
-      borderTopEndRadius:30,
+      paddingHorizontal:40,
+      paddingTop:40,
+      borderTopRightRadius:30,
+      borderTopLeftRadius:30,
       backgroundColor: '#f4f4fc',
-      overflow:"hidden"
  
    },
    buttonContainer: {
@@ -130,12 +128,11 @@ const styles = StyleSheet.create({
 }, 
     mainContainer: {
       flex:1,
-        backgroundColor:"#f3f3fb"
     },
     sectionContainer: {
       flex:1,
-        marginTop: 32,
-        paddingHorizontal: 24,
+        marginTop: 64,
+        paddingHorizontal: 48,
         backgroundColor:"#f3f3fb"
     },
     sectionTitle: {
