@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     borderColor: '#464F7A',
   },
   track: {
-    
+    height: 10
   },
   thumb: {
     width: 20,
