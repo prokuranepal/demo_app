@@ -61,7 +61,7 @@ const CustomSlider = props => {
     },
     sliderContainer: {
       marginTop: 20,
-      height: 35,
+      height: 32,
       display: 'flex',
       justifyContent: 'center',
       borderLeftWidth: 15,
@@ -70,7 +70,7 @@ const CustomSlider = props => {
       borderColor: props.color,
     },
     track: {
-      height: 35,
+      height: 32,
       backgroundColor: props.color,
       display: 'flex',
       justifyContent: 'center',
