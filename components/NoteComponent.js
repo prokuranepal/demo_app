@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
 const noteComponent = props => (
-    <View  style={[styles.noteView, props.noteViewStyle]} >
+    <View  style={{...styles.noteView, borderLeftColor:props.color}} >
         <Text style={[styles.textHeading, props.style]} >
              {props.title}
          </Text>
@@ -15,7 +15,7 @@ const noteComponent = props => (
 const styles = StyleSheet.create({
     noteView:{
     padding:10,
-    marginTop:20,
+    marginVertical:20,
     borderLeftColor: "#464f7a",
     borderLeftWidth:10  ,
     backgroundColor:"#ebebec" 

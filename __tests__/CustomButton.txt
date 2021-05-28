@@ -1,0 +1,40 @@
+// import React from 'react';
+// import TestInput from '../../components/Component/testInput';
+// import {
+//     configure,
+//     shallow
+// } from 'enzyme';
+// import {  View, Text ,TextInput} from 'react-native';
+// import EnzymeAdapter from 'enzyme-adapter-react-16';
+// import test_function, {findByTestAttr} from './test_function'
+// // JestHook.mock('expo-font');
+
+// configure({
+//     adapter: new EnzymeAdapter
+// })
+// const function_click=jest.fn()
+
+
+
+// const dummy_data = {
+//     value1:"image.png",
+//     idName:"id2",
+//     textChangeHandler:function_click,
+//     changeHandler:function_click
+// }
+
+
+// describe('<CustomButton />', () => {
+//   it("Events and props test in TestInput", () =>
+//         {
+//             const wrapper = shallow(<TestInput  {...dummy_data} />)
+//             let container1 = findByTestAttr(wrapper, "container1")
+//             expect(container1.props().value).toEqual("image.png")
+//             let container = findByTestAttr(wrapper, "container")
+//             expect(container).toHaveLength(0)
+//             container1.props().onChangeText()
+//             wrapper.update()
+//             expect(function_click).toHaveBeenCalledTimes(1)
+//             });
+//         });
+

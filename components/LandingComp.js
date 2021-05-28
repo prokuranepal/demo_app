@@ -17,13 +17,12 @@ const LandingComp =(props)=>(
         <HeaderText style={{fontSize:17, color:"#5a638b", paddingTop:10}}>
             Any ingredients you don't prefer or are allergic to?
         </HeaderText>
-
+        {props.children}
         <CustomButton container_style ={styles.buttonContainer} 
                 data-test="callComp" 
                 title="save diet"  
                 color="#fff"
                 pressHandler={() => props.setisModal(true)} />
-        {props.children}
     </View>
 )
 
