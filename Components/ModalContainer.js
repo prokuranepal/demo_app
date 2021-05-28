@@ -8,96 +8,13 @@ import {
 import HeaderText from './HeaderText';
 import NoteComponent from './NoteComponent';
 import CustomButton from './CustomButton';
-import Slider from 'react-native-custom-slider';
-import SnapSlider from '@elselabs/react-native-snap-slider'
+// import Slider from 'react-native-custom-slider';
+// import SnapSlider from '@elselabs/react-native-snap-slider';
+import CustomSlider from './CustomSlider';
 const ModalContainer = props => {
 
-
-    const defaultValue = 1
-    const maximumValue = 1;
-    const length = 4
-    const sliderRatio = maximumValue / (length - 1);
-    const [state, setState] = useState({
-        value: sliderRatio * defaultValue,
-        adjustSign: 1
-    });
-    var customStyle = StyleSheet.create({
-        track: {
-            // height: 30,
-            // borderRadius: 15,
-            // paddingRight: 5,
-            // borderColor: '#464F7A',
-            // borderWidth: 5,
-            // borderLeftWidth: 40,
-            // backgroundColor: 'white',
-            // shadowColor: 'black',
-            // shadowOffset: { width: 0, height: 1 },
-            // shadowRadius: 1,
-            // shadowOpacity: 0.15,
-        },
-        thumb: {
-            width: 20,
-            height: 20,
-            backgroundColor: '#464F7A',
-            borderColor: 'white',
-            borderWidth: 5,
-            borderRadius: 10,
-            // shadowColor: 'black',
-            // shadowOffset: { width: 0, height: 2 },
-            // shadowRadius: 2,
-            // shadowOpacity: 0.35,
-            // marginRight: 10,
-            // marginLeft: 10
-        }
-    });
-
-    const choice = (v) => {
-
-        // let newValue = 0
-        // if (v > state.value) {
-        //     newValue = Math.ceil(v);
-        // } else if (v <= state.value) {
-        //     newValue = Math.floor(v)
-        // }
-        // console.log(v, state.value, newValue)
-        // setState({...state, value: newValue})
-        const halfRatio = sliderRatio / 2;
-        console.log(halfRatio);
-        let i = 0;
-        for (; ;) {
-            if ((v < sliderRatio) || (v <= 0)) {
-                if (v >= halfRatio) {
-                    i++;
-                }
-                break;
-            }
-            v = v - sliderRatio;
-            i++;
-        }
-        let value = sliderRatio * i;
-
-        //Move the slider
-        value = value + (state.adjustSign * 0.000001);//enforce UI update
-        if (state.adjustSign > 0) {
-            setState({ ...state, adjustSign: -1 });
-        } else {
-            setState({ ...state, adjustSign: 1 });
-        }
-        console.log(value);
-        setState({ ...state, value: value })
-    }
-
-    const defaultItem = 2;
-
-    const sliderOptions = [
-        { value: 0, label: 'Eat' },
-        { value: 1, label: 'Don\'t Prefer' },
-        { value: 2, label: 'Intolerant' },
-        { value: 3, label: 'Severe Allergy' },
-    ]
-
-    const slidingComplete = (e) => {
-        console.log(e)
+    const selectState = (value) => {
+        console.log(value)
     }
     return (
         <Modal
@@ -117,27 +34,7 @@ const ModalContainer = props => {
                 <NoteComponent title={props.optionHeader}>
                     {props.optionDescription}
                 </NoteComponent>
-                <View style={styles.sliderContainer}>
-               
-                    <Slider
-                        value={state.value}
-                        minimumValue={0}
-                        maximumValue={1}
-                        // onValueChange={(value) => setValue(value)}
-                        onSlidingComplete={(value) => choice(value)}
-                        trackStyle={customStyle.track}
-                        thumbStyle={customStyle.thumb}
-                        minimumTrackTintColor="#464F7A"
-                        maximumTrackTintColor="#464F7A"
-                        />
-                        
-                </View>
-                <View style={styles.itemWrapper}>
-                            <Text>Eat</Text>
-                            <Text>Don't Prefer</Text>
-                            <Text>Intolerant</Text>
-                            <Text>Severe {"\n"} Allergy</Text>
-                        </View>
+                <CustomSlider selectState={selectState}/>
                 {/* <SnapSlider containerStyle={styles.snapsliderContainer} style={styles.snapslider}
                     itemWrapperStyle={styles.snapsliderItemWrapper}
                     itemStyle={styles.snapsliderItem}
@@ -209,7 +106,7 @@ const styles = StyleSheet.create({
     sliderContainer: {
         marginTop: 20,
         borderLeftWidth: 10,
-        borderRightWidth: 20,
+        borderRightWidth: 15,
         height: 40,
         paddingBottom: 20,
         borderRadius: 20,
