@@ -9,9 +9,10 @@ const CustomSlider = props => {
   const length = 4
   const sliderRatio = maximumValue / (length - 1);
   const [state, setState] = useState({
-    value: sliderRatio * defaultValue,
+    value: props.initialValue,
     adjustSign: 1
   });
+  console.log("state value",state.value)
   const sliderOptions = [
     { value: 0, label: 'Eat' },
     { value: 1, label: 'Don\'t Prefer' },

@@ -50,7 +50,7 @@ const ModalContainer = props => {
                     onSlidingComplete={slidingComplete}
                     minimumTrackTintColor="black"
                     maximumTrackTintColor="#464F7A" /> */}
-                <CustomSlider selectState={props.selectState} color={props.preferenceOption.color}/>
+                <CustomSlider selectState={props.selectState} color={props.preferenceOption.color} initialValue={props.preferenceOption._id}/>
 
                 <View style={{ flex: 3, flexDirection: "row", justifyContent: "center" }}>
                     <CustomButton container_style={{ ...styles.buttonContainer, flex: 3, alignItems: "flex-end", margin: 10 }}
