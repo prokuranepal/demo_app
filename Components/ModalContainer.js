@@ -10,7 +10,7 @@ import NoteComponent from './NoteComponent';
 import CustomButton from './CustomButton';
 // import Slider from 'react-native-custom-slider';
 // import SnapSlider from '@elselabs/react-native-snap-slider';
-import CustomSlider from './CustomSlider';
+import CustomSlider from './Slider/CustomSlider';
 const ModalContainer = props => {
 
     const selectState = (value) => {

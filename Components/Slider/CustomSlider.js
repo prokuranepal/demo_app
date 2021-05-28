@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import Slider from 'react-native-custom-slider';
+import Slider from './SliderContainer';;
 
 const CustomSlider = props => {
 
@@ -80,7 +80,7 @@ const CustomSlider = props => {
 
 const styles = StyleSheet.create({
   itemWrapper: {
-    marginLeft: 10,
+    marginLeft: 5,
     justifyContent: 'space-between',
     alignSelf: 'stretch',
     flexDirection: 'row',
@@ -90,23 +90,27 @@ const styles = StyleSheet.create({
   },
   sliderContainer: {
     marginTop: 20,
-    borderLeftWidth: 10,
+    borderLeftWidth: 8,
     borderRightWidth: 15,
-    height: 40,
-    paddingBottom: 20,
+    height: 30,
+    display: 'flex',
+    justifyContent: 'center',
     borderRadius: 20,
     backgroundColor: '#464F7A',
     borderColor: '#464F7A',
   },
   track: {
-    height: 10
+    height: 12,
+    backgroundColor: '#464F7A',
+    display: 'flex',
+    justifyContent: 'center',
   },
   thumb: {
     width: 20,
     height: 20,
     backgroundColor: '#464F7A',
     borderColor: 'white',
-    borderWidth: 5,
+    borderWidth: 7,
     borderRadius: 10,
   }
 });
