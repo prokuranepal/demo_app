@@ -19,7 +19,7 @@ export const dummy_preference = [
     new Preference (
         "Intolerant",
         "Intolerant",
-        <Text>Menu items with gluten in them will <Text style={{'fontWeight':'bold'}}>NOT</Text>  show up in your search and menus. Priority will be given to allergy friendly restaurants, when shown</Text>,                
+        <Text>Menu items with gluten in them will <Text style={{'fontWeight':'bold'}}>NOT</Text> show up in your search and menus. Priority will be given to allergy friendly restaurants, when shown</Text>,                
         "#d16a0a"
     ),
 
