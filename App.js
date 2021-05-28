@@ -14,7 +14,8 @@ import {
     StyleSheet,
     View,
 } from 'react-native';
-import ModalContainer from './Components/ModalCotainer';
+
+import ModalContainer from './Components/ModalContainer';
 import LandingComp from './Components/LandingComp';
 
 const App  = () => {
