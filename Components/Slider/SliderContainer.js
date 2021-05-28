@@ -272,15 +272,32 @@ export default class Slider extends PureComponent {
 
     var touchOverflowStyle = this._getTouchOverflowStyle();
 
+    const customStyles = StyleSheet.create({
+        stepStyle: {
+            backgroundColor: this.props.color,
+            borderWidth: 3,
+            borderColor: 'white',
+            height: 10,
+            width: 10,
+            borderRadius: 5,
+            overflow: 'hidden',
+          },
+          stepIndicatorContainer: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            // backgroundColor: 'white',
+          },
+    });
+
     const renderSteps = (
-      <View style={defaultStyles.stepIndicatorContainer}>
-        <View style={defaultStyles.stepStyle}></View>
-        <View style={defaultStyles.stepStyle}></View>
-        <View style={defaultStyles.stepStyle}></View>
-        <View style={defaultStyles.stepStyle}></View>
+      <View style={customStyles.stepIndicatorContainer}>
+        {[1,2,3,4].map((i) => {
+        return <View key={i} style={customStyles.stepStyle}></View>})}
       </View>
     )
 
+    
 
     return (
       <View
@@ -613,26 +630,5 @@ var defaultStyles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: 'green',
     opacity: 0.5,
-  },
-  stepStyle: {
-    backgroundColor: '#464F7A',
-    borderWidth: 3,
-    borderColor: 'white',
-    height: 10,
-    width: 10,
-    borderRadius: 5,
-    overflow: 'hidden',
-  },
-  stepIndicatorContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    // backgroundColor: 'rgba(1,0,0,0)',
-  },
-  stepContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
   }
 });

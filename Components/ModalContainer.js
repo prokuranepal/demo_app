@@ -11,11 +11,17 @@ import CustomButton from './CustomButton';
 // import Slider from 'react-native-custom-slider';
 // import SnapSlider from '@elselabs/react-native-snap-slider';
 import CustomSlider from './Slider/CustomSlider';
+import {colors} from './themeColors';
 const ModalContainer = props => {
 
+    const [color, setColor] = useState();
     const selectState = (value) => {
-        console.log(value)
+        console.log(colors[value]);
+        setColor(colors[value])
     }
+
+    
+    
     return (
         <Modal
             animationType={"slide"}
@@ -34,7 +40,7 @@ const ModalContainer = props => {
                 <NoteComponent title={props.optionHeader}>
                     {props.optionDescription}
                 </NoteComponent>
-                <CustomSlider selectState={selectState}/>
+                <CustomSlider selectState={selectState} color={color}/>
                 {/* <SnapSlider containerStyle={styles.snapsliderContainer} style={styles.snapslider}
                     itemWrapperStyle={styles.snapsliderItemWrapper}
                     itemStyle={styles.snapsliderItem}
@@ -47,13 +53,13 @@ const ModalContainer = props => {
 
                 <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly" }}>
                     <CustomButton container_style={{ ...styles.buttonContainer, flex: 3, alignItems: "flex-end", margin: 10 }}
-                        buttonStyle={{ backgroundColor: "#464f7a", fontSize: '20' }}
+                        buttonStyle={{ backgroundColor: color, fontSize: '20' }}
                         data-test="saveComp"
                         title="save"
                         color="#fff"
                         pressHandler={props.actionClick} />
                     <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "flex-start" }}
-                        buttonStyle={{ backgroundColor: "#464f7a", paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
+                        buttonStyle={{ backgroundColor: color, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
                         data-test="saveComp"
                         title="X"
                         color="#fff"
@@ -64,6 +70,7 @@ const ModalContainer = props => {
 
     )
 };
+
 const styles = StyleSheet.create({
 
     modal: {
@@ -81,46 +88,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 50,
 
-    },
-    snapsliderContainer: {
-
-    },
-    snapslider: {
-        height: 20,
-        backgroundColor: '#464F7A',
-        // borderWidth: 5,
-        // borderColor: '#464F7A',
-        // borderRadius: 10,
-
-
-    },
-    snapsliderItemWrapper: {
-        alignItems: 'center',
-        // justifyContent: 'flex-end',
-
-    },
-    snapsliderItem: {
-        fontSize: 12,
-
-    },
-    sliderContainer: {
-        marginTop: 20,
-        borderLeftWidth: 10,
-        borderRightWidth: 15,
-        height: 40,
-        paddingBottom: 20,
-        borderRadius: 20,
-        backgroundColor: '#464F7A',
-        borderColor: '#464F7A',
-
-    },
-    itemWrapper: {
-        marginLeft: 10,
-        justifyContent: 'space-between',
-        alignSelf: 'stretch',
-        flexDirection: 'row',
-    },
-
+    }
 });
-
 export default ModalContainer;
