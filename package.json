@@ -10,9 +10,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "enzyme": "^3.11.0",
+    "@elselabs/react-native-snap-slider": "^2.0.0",
+    "@react-native-community/slider": "^3.0.3",
     "react": "17.0.1",
-    "react-native": "0.64.1"
+    "react-native": "0.64.1",
+    "react-native-custom-slider": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",

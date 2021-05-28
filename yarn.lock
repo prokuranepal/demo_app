@@ -745,6 +745,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@elselabs/react-native-snap-slider@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@elselabs/react-native-snap-slider/-/react-native-snap-slider-2.0.0.tgz#586dc351b6c170f322a8a9d387b8151d15160360"
+  integrity sha512-aBzHDVZC56vdV1RgCadEDXq1f2E2s7Zz0tE55Mv6sWeCXKJqL8oa7nm21jT0PhBCGPj5kE2Zq8p/2/RY7WKGQg==
+  dependencies:
+    "@react-native-community/slider" "^4.0.0-rc.3"
+
 "@eslint/eslintrc@^0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.1.tgz#442763b88cecbe3ee0ec7ca6d6dd6168550cbf14"
@@ -1123,6 +1130,18 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz#e42b1bef12d2415411519fd528e64b593b1363dc"
   integrity sha512-W/J0fNYVO01tioHjvYWQ9m6RgndVtbElzYozBq1ZPrHO/iCzlqoySHl4gO/fpCl9QEFjvJfjPgtPMTMlsoq5DQ==
+
+"@react-native-community/slider@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-3.0.3.tgz#830167fd757ba70ac638747ba3169b2dbae60330"
+  integrity sha512-8IeHfDwJ9/CTUwFs6x90VlobV3BfuPgNLjTgC6dRZovfCWigaZwVNIFFJnHBakK3pW2xErAPwhdvNR4JeNoYbw==
+
+"@react-native-community/slider@^4.0.0-rc.3":
+  version "4.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.0.0-rc.3.tgz#4e2b09e4e31c75e3fd61ad6068fe438835cfb30c"
+  integrity sha512-OFW4NSk86hhkAEqsC7n1qrBCxl83+Im73F/E5oxrj/fsGW+pUR92yWMCEigEaAdTzsw22r1/snBO74FtAQbl6g==
+  dependencies:
+    flow-bin "0.113.0"
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
@@ -2887,6 +2906,11 @@ flatted@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.1.tgz#c4b489e80096d9df1dfc97c79871aea7c617c469"
   integrity sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
+
+flow-bin@0.113.0:
+  version "0.113.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.113.0.tgz#6457d250dbc6f71ca51e75f00a96d23cde5d987a"
+  integrity sha512-76uE2LGNe50wm+Jup8Np4FBcMbyy5V2iE+K25PPIYLaEMGHrL1jnQfP9L0hTzA5oh2ZJlexRLMlaPqIYIKH9nw==
 
 flow-parser@0.*:
   version "0.152.0"
@@ -5298,6 +5322,11 @@ react-native-codegen@^0.0.6:
     flow-parser "^0.121.0"
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
+
+react-native-custom-slider@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-custom-slider/-/react-native-custom-slider-1.0.2.tgz#0e22fdc7a4b4199915503cbad8650f99b96ade64"
+  integrity sha512-mMRodZBKoVyAaVkVAcVfefPztsId8IlGALQPMOFtNi4OSjAEo/lsNfcsYT8b/BUowXLLdOfGzGyeXT4m2kstfw==
 
 react-native@0.64.1:
   version "0.64.1"
