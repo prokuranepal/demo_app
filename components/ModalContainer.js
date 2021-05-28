@@ -30,11 +30,11 @@ const ModalContainer = props => {
             <View style={styles.modal}>
             <ScrollView  contentContainerStyle={{flexGrow:1,paddingHorizontal:10}} >
                 
-                <View style={{height:220}}>
+                <View style={{height:250}}>
                 <HeaderText>
                     {props.modalHeader}
                 </HeaderText>
-                <HeaderText style={{ fontSize: 17, color: "#5a638b", paddingTop: 10 }}>
+                <HeaderText style={{ fontSize: 17, color: "#575758", paddingTop: 7 , fontWeight:"normal"}}>
                     {props.dietaryDescription}
                 </HeaderText>
                 <NoteComponent title={props.preferenceOption.subHeader}  color={props.preferenceOption.color}>
@@ -50,16 +50,16 @@ const ModalContainer = props => {
                     onSlidingComplete={slidingComplete}
                     minimumTrackTintColor="black"
                     maximumTrackTintColor="#464F7A" /> */}
-                <CustomSlider selectState={props.selectState} color={props.preferenceOption.color}/>
+                <CustomSlider selectState={props.selectState} color={props.preferenceOption.color} initialValue={props.preferenceOption._id}/>
 
                 <View style={{ flex: 3, flexDirection: "row", justifyContent: "center" }}>
-                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 3, alignItems: "flex-end", margin: 10 }}
-                        buttonStyle={{ backgroundColor:props.preferenceOption.color, fontSize: '20' }}
+                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 5, alignItems: "center", margin: 10 }}
+                        buttonStyle={{ backgroundColor:props.preferenceOption.color}}
                         data-test="saveComp"
                         title="save choice"
                         color="#fff"
                         pressHandler={props.actionClick} />
-                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "flex-start" }}
+                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "center" }}
                         buttonStyle={{ backgroundColor:props.preferenceOption.color, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
                         data-test="saveComp"
                         title="X"

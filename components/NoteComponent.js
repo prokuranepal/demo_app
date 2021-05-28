@@ -15,7 +15,9 @@ const noteComponent = props => (
 const styles = StyleSheet.create({
     noteView:{
     padding:10,
-    marginVertical:20,
+    paddingTop:7,
+    marginTop:10,
+    marginBottom:20,
     borderLeftColor: "#464f7a",
     borderLeftWidth:10  ,
     backgroundColor:"#ebebec" 
