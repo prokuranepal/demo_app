@@ -20,18 +20,18 @@ const ModalContainer = props => (
             <HeaderText style={{fontSize:17, color:"#5a638b", paddingTop:10}}>
                 {props.dietaryDescription}
             </HeaderText>
-            <NoteComponent title={props.optionHeader}>
+            <NoteComponent title={props.optionHeader} color={props.themeColor}>
                 {props.optionDescription}
             </NoteComponent>
             <View style={{flex:1, flexDirection:"row", justifyContent:"space-evenly"}}>
                 <CustomButton container_style ={{...styles.buttonContainer, flex:3, alignItems:"flex-end", margin:10}} 
-                    buttonStyle={{backgroundColor:"#464f7a"}}
+                    buttonStyle={{backgroundColor:props.themeColor}}
                     data-test="saveComp" 
                     title="save choice"  
                     color="#fff"
                     pressHandler={props.actionClick} />
             <CustomButton container_style ={{...styles.buttonContainer,flex:1, alignItems:"flex-start"}} 
-                    buttonStyle={{backgroundColor:"#464f7a", paddingHorizontal:13,paddingVertical:10,borderRadius:40}}
+                    buttonStyle={{backgroundColor:props.themeColor, paddingHorizontal:13,paddingVertical:10,borderRadius:40}}
                     data-test="saveComp" 
                     title="X"  
                     color="#fff"

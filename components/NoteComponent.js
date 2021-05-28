@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
 const noteComponent = props => (
-    <View  style={[styles.noteView, props.noteViewStyle]} >
+    <View  style={{...styles.noteView, borderLeftColor:props.color}} >
         <Text style={[styles.textHeading, props.style]} >
              {props.title}
          </Text>
