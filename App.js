@@ -15,7 +15,8 @@ import {
 } from 'react-native';
 import ModalContainer from './components/ModalContainer';
 import LandingComp from './components/LandingComp';
-import {gluten_data} from './data/dummy_data'
+import {gluten_data} from './data/dummy_data';
+import {colors} from './ThemeColors/themeColors';
 const App  = () => {
     const [isModal, setisModal] = useState(false);
     const isDarkMode =true;
@@ -26,7 +27,7 @@ const App  = () => {
         setisModal(false);
     }
 
-    let backgroundCol=isModal?"#b0b0b0":"#f3f3fb";
+    let backgroundCol=isModal?colors.background:colors.backgroundDim;
     return (
         <SafeAreaView style={{...styles.mainContainer,backgroundColor:backgroundCol}}>
             <StatusBar
