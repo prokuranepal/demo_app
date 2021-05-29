@@ -15,7 +15,7 @@ const LandingComp =(props)=>(
             Let's know your dietary preferences.
         </HeaderText>
         <HeaderText style={{fontSize:17, color:"#5a638b", paddingTop:10}}>
-            Any ingredients you don't prefer or are allergic to?
+            Any ingredients you don't prefer or are allergic to? sdfdfdsfd
         </HeaderText>
         {props.children}
         <CustomButton container_style ={styles.buttonContainer} 
