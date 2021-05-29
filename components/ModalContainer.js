@@ -30,11 +30,11 @@ const ModalContainer = props => {
             <View style={styles.modal}>
             <ScrollView  contentContainerStyle={{flexGrow:1,paddingHorizontal:10}} >
                 
-                <View style={{height:250}}>
+                <View style={{height:220}}>
                 <HeaderText>
                     {props.modalHeader}
                 </HeaderText>
-                <HeaderText style={{ fontSize: 17, color: "#575758", paddingTop: 7 , fontWeight:"normal"}}>
+                <HeaderText style={{ fontSize: 17, color: "#575758", paddingVertical: 10 , fontWeight:"normal"}}>
                     {props.dietaryDescription}
                 </HeaderText>
                 <NoteComponent title={props.preferenceOption.subHeader}  color={props.preferenceOption.color}>
@@ -52,14 +52,14 @@ const ModalContainer = props => {
                     maximumTrackTintColor="#464F7A" /> */}
                 <CustomSlider selectState={props.selectState} color={props.preferenceOption.color} initialValue={props.preferenceOption._id}/>
 
-                <View style={{ flex: 3, flexDirection: "row", justifyContent: "center" }}>
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
                     <CustomButton container_style={{ ...styles.buttonContainer, flex: 5, alignItems: "center", margin: 10 }}
                         buttonStyle={{ backgroundColor:props.preferenceOption.color}}
                         data-test="saveComp"
                         title="save choice"
                         color="#fff"
                         pressHandler={props.actionClick} />
-                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "center" }}
+                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "flex-start" }}
                         buttonStyle={{ backgroundColor:props.preferenceOption.color, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
                         data-test="saveComp"
                         title="X"
