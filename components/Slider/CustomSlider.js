@@ -55,22 +55,24 @@ const CustomSlider = props => {
       justifyContent: 'space-between',
       alignSelf: 'stretch',
       flexDirection: 'row',
+      marginBottom:20,
+      marginTop:8
     },
     item: {
       color: props.color
     },
     sliderContainer: {
       marginTop: 20,
-      height: 32,
+      height: 30,
       display: 'flex',
       justifyContent: 'center',
-      borderLeftWidth: 15,
-      borderRightWidth: 15,
+      borderLeftWidth: 17,
+      borderRightWidth: 17,
       borderRadius: 20,
       borderColor: props.color,
     },
     track: {
-      height: 32,
+      height: 30,
       backgroundColor: props.color,
       display: 'flex',
       justifyContent: 'center',
@@ -86,7 +88,7 @@ const CustomSlider = props => {
   });
 
   return (
-    <View style={{flex:1, justifyContent:"flex-end"}}>
+    <View style={{flex:1, justifyContent:"center"}}>
       <View style={styles.sliderContainer}>
 
         <Slider

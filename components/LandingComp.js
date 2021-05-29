@@ -11,11 +11,11 @@ import HeaderText from './HeaderText';
 
 const LandingComp =(props)=>(
     <View style={{...styles.sectionContainer,backgroundColor:props.backgroundCol}}>
-        <HeaderText>
+        <HeaderText style={{color:"#5a638b"}}>
             Let's know your dietary preferences.
         </HeaderText>
-        <HeaderText style={{fontSize:17, color:"#5a638b", paddingTop:10}}>
-            Any ingredients you don't prefer or are allergic to? sdfdfdsfd
+        <HeaderText style={{fontSize:17, paddingTop:10}}>
+            Any ingredients you don't prefer or are allergic to?
         </HeaderText>
         {props.children}
         <CustomButton container_style ={styles.buttonContainer} 
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        marginBottom: 50,
+        marginBottom: 40,
     },
 
     sectionContainer: {

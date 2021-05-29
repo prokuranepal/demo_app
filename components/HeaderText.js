@@ -10,7 +10,7 @@ const headerText = props => (
 const styles = StyleSheet.create({
   textHeading: {
     fontSize:26, 
-    color:"#575758", 
+    color:"#575758",  
     fontWeight:"bold"
   }
 });

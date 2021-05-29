@@ -4,8 +4,8 @@ const customButton =(props)=>(
     <View style={props.container_style}>
         <TouchableOpacity
           style={[styles.saveStyle,props.buttonStyle]}
-          onPress={ props.pressHandler }>
-            <Text style={{color:props.color, fontSize:17}}> {props.title} </Text>
+          onPress={props.pressHandler} data-test="touchableComp">
+            <Text style={{color:props.color, fontSize:17}} data-test="textData">{props.title}</Text>
       </TouchableOpacity>
 </View>
 )

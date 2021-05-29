@@ -12,11 +12,18 @@ import CustomButton from './CustomButton';
 // import SnapSlider from '@elselabs/react-native-snap-slider';
 import CustomSlider from './Slider/CustomSlider';
 
-
+import {Dimensions} from 'react-native';
+import {useOrientation} from './useOrientation'
 
 
 const ModalContainer = props => {
-
+    const orientation = useOrientation()
+    const dim = Dimensions.get('screen');
+    const dimA = Dimensions.get("window") 
+    console.log(dim.height, dim.width, orientation)
+    let height=dim.height<700?152:145;
+    let buttonFlexSize=dim.height<700?5:3.7;
+    let aspectRatio= orientation=="PORTRAIT"?dimA.height/dimA.width:((dimA.height/dimA.width)*3)
     return (
         
         <Modal
@@ -30,11 +37,11 @@ const ModalContainer = props => {
             <View style={styles.modal}>
             <ScrollView  contentContainerStyle={{flexGrow:1,paddingHorizontal:10}} >
                 
-                <View style={{height:220}}>
+                <View style={{height:height*aspectRatio}}>
                 <HeaderText>
                     {props.modalHeader}
                 </HeaderText>
-                <HeaderText style={{ fontSize: 17, color: "#575758", paddingVertical: 10 , fontWeight:"normal"}}>
+                <HeaderText style={{ fontSize: 17, paddingVertical: 10 , fontWeight:"normal"}}>
                     {props.dietaryDescription}
                 </HeaderText>
                 <NoteComponent title={props.preferenceOption.subHeader}  color={props.preferenceOption.color}>
@@ -52,8 +59,8 @@ const ModalContainer = props => {
                     maximumTrackTintColor="#464F7A" /> */}
                 <CustomSlider selectState={props.selectState} color={props.preferenceOption.color} initialValue={props.preferenceOption._id}/>
 
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
-                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 5, alignItems: "center", margin: 10 }}
+                <View style={{ flex: 0.5, flexDirection: "row", justifyContent: "center" , alignItems:"flex-end", marginBottom:40}}>
+                    <CustomButton container_style={{ ...styles.buttonContainer, flex: buttonFlexSize, alignItems: "center" }}
                         buttonStyle={{ backgroundColor:props.preferenceOption.color}}
                         data-test="saveComp"
                         title="save choice"
@@ -88,7 +95,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        marginBottom: 50,
 
     },
     snapsliderContainer: {
