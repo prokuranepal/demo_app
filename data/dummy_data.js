@@ -1,7 +1,7 @@
 import Preference from '../model/dietary_preference';
 import { Text } from "react-native";
 import React from 'react';
-export const preference_data = {
+export const gluten_data = {
     dietaryHeader: "Gluten",
     dietaryDescription: "Gluten is a hidden allergen and the general name for the proteins found in wheat, barley, and rye products.",
     preferences: [
