@@ -79,7 +79,7 @@ const CustomSlider = props => {
   });
 
   return (
-    <View>
+    <View style={{flex:1, justifyContent:"flex-end"}}>
       <View style={styles.sliderContainer}>
 
         <Slider
