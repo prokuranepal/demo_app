@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     View,
     Modal,
@@ -8,64 +8,60 @@ import {
 import HeaderText from './HeaderText';
 import NoteComponent from './NoteComponent';
 import CustomButton from './CustomButton';
-// import Slider from 'react-native-custom-slider';
-// import SnapSlider from '@elselabs/react-native-snap-slider';
 import CustomSlider from './Slider/CustomSlider';
-
-
-
 
 const ModalContainer = props => {
 
+    const [preferenceOption, setpreferenceOption] = useState(props.diet.preferences[0]);
+
+    const optionSelectHandler = (value) => {
+        setpreferenceOption(props.diet.preferences[value])
+
+    }
     return (
-        
+
         <Modal
             animationType={"slide"}
-            // transparent={false}
-            onRequestClose={props.actionClick}
+            onRequestClose={() => props.actionClick(0, props.diet.dietaryHeader)}
             transparent={true}
             visible={props.isModal}>
-              
+
             <TouchableOpacity style={{ flex: 1, opacity: 0 }} onPressOut={props.actionClick} />
             <View style={styles.modal}>
-            <ScrollView  contentContainerStyle={{flexGrow:1,paddingHorizontal:10}} >
-                
-                <View style={{height:220}}>
-                <HeaderText>
-                    {props.modalHeader}
-                </HeaderText>
-                <HeaderText style={{ fontSize: 17, color: "#575758", paddingVertical: 10 , fontWeight:"normal"}}>
-                    {props.dietaryDescription}
-                </HeaderText>
-                <NoteComponent title={props.preferenceOption.subHeader}  color={props.preferenceOption.color}>
-                    {props.preferenceOption.subHeaderDescription}
-                </NoteComponent>
-                </View>
-                {/* <SnapSlider containerStyle={styles.snapsliderContainer} style={styles.snapslider}
-                    itemWrapperStyle={styles.snapsliderItemWrapper}
-                    itemStyle={styles.snapsliderItem}
-                    items={sliderOptions}
-                    labelPosition="bottom"
-                    defaultItem={defaultItem}
-                    onSlidingComplete={slidingComplete}
-                    minimumTrackTintColor="black"
-                    maximumTrackTintColor="#464F7A" /> */}
-                <CustomSlider selectState={props.selectState} color={props.preferenceOption.color} initialValue={props.preferenceOption._id}/>
+                <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 10 }} >
 
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
-                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 5, alignItems: "center", margin: 10 }}
-                        buttonStyle={{ backgroundColor:props.preferenceOption.color}}
-                        data-test="saveComp"
-                        title="save choice"
-                        color="#fff"
-                        pressHandler={props.actionClick} />
-                    <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "flex-start" }}
-                        buttonStyle={{ backgroundColor:props.preferenceOption.color, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
-                        data-test="saveComp"
-                        title="X"
-                        color="#fff"
-                        pressHandler={props.actionClick} />
-                </View>
+                    <View style={{ height: 250 }}>
+                        <HeaderText>
+                            {props.diet.dietaryHeader}
+                        </HeaderText>
+                        <HeaderText style={{ fontSize: 17, color: "#575758", paddingTop: 7, fontWeight: "normal" }}>
+                            {props.diet.dietaryDescription}
+                        </HeaderText>
+                        <NoteComponent title={preferenceOption.subHeader} color={preferenceOption.color}>
+                            {preferenceOption.subHeaderDescription}
+                        </NoteComponent>
+                    </View>
+
+                    <CustomSlider selectState={optionSelectHandler}
+                        color={preferenceOption.color}
+                        initialValue={preferenceOption._id}
+                        preferences={props.diet.preferences}
+                    />
+
+                    <View style={{ flex: 3, flexDirection: "row", justifyContent: "center" }}>
+                        <CustomButton container_style={{ ...styles.buttonContainer, flex: 5, alignItems: "center", margin: 10 }}
+                            buttonStyle={{ backgroundColor: preferenceOption.color }}
+                            data-test="saveComp"
+                            title="save choice"
+                            color="#fff"
+                            pressHandler={() => props.actionClick(preferenceOption._id, props.diet.dietaryHeader)} />
+                        <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "center" }}
+                            buttonStyle={{ backgroundColor: preferenceOption.color, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
+                            data-test="saveComp"
+                            title="X"
+                            color="#fff"
+                            pressHandler={() => props.actionClick(0, props.diet.dietaryHeader)} />
+                    </View>
                 </ScrollView>
 
             </View>

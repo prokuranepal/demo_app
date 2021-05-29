@@ -178,6 +178,12 @@ export default class Slider extends PureComponent {
      * Used to configure the animation parameters.  These are the same parameters in the Animated library.
      */
     animationConfig: PropTypes.object,
+    
+    /**
+     * Used to configure the number of checkpoints to be rendered
+     */
+
+     length: PropTypes.number
   };
 
   static defaultProps = {
@@ -292,7 +298,7 @@ export default class Slider extends PureComponent {
 
     const renderSteps = (
       <View style={customStyles.stepIndicatorContainer}>
-        {[1,2,3,4].map((i) => {
+        {Array.apply(null, Array(this.props.length)).map((i) => {
         return <View key={i} style={customStyles.stepStyle}></View>})}
       </View>
     )
