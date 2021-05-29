@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
-
+import {colors} from '../ThemeColors/themeColors';
 const noteComponent = props => (
     <View  style={{...styles.noteView, borderLeftColor:props.color}} >
         <Text style={[styles.textHeading, props.style]} >
@@ -18,19 +18,19 @@ const styles = StyleSheet.create({
     paddingTop:12,
     marginTop:10,
     marginBottom:20,
-    borderLeftColor: "#464f7a",
+    borderLeftColor: colors.defaultBorder,
     borderLeftWidth:10  ,
-    backgroundColor:"#ebebec" 
+    backgroundColor: colors.note
     },
 
   textNormal: {
     fontSize:15, 
-    color:"#575758", 
+    color:colors.textColor1, 
   },
   
   textHeading: {
     fontSize:18, 
-    color:"#575758", 
+    color: colors.textColor1, 
     fontWeight:"bold"
   }
 });

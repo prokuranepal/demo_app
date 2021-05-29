@@ -26,7 +26,7 @@ const ModalContainer = props => {
             transparent={true}
             visible={props.isModal}>
 
-            <TouchableOpacity style={{ flex: 1, opacity: 0 }} onPressOut={props.actionClick} />
+            <TouchableOpacity style={{ flex: 1, opacity: 0 }} onPressOut={() => props.actionClick(0, props.diet.dietaryHeader)} />
             <View style={styles.modal}>
                 <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 10 }} >
 
@@ -34,7 +34,7 @@ const ModalContainer = props => {
                         <HeaderText>
                             {props.diet.dietaryHeader}
                         </HeaderText>
-                        <HeaderText style={{ fontSize: 17, color: "#575758", paddingTop: 7, fontWeight: "normal" }}>
+                        <HeaderText style={{ fontSize: 17, paddingTop: 7, fontWeight: "normal" }}>
                             {props.diet.dietaryDescription}
                         </HeaderText>
                         <NoteComponent title={preferenceOption.subHeader} color={preferenceOption.color}>
@@ -87,45 +87,6 @@ const styles = StyleSheet.create({
         marginBottom: 50,
 
     },
-    snapsliderContainer: {
-
-    },
-    snapslider: {
-        height: 20,
-        backgroundColor: '#464F7A',
-        // borderWidth: 5,
-        // borderColor: '#464F7A',
-        // borderRadius: 10,
-
-
-    },
-    snapsliderItemWrapper: {
-        alignItems: 'center',
-        // justifyContent: 'flex-end',
-
-    },
-    snapsliderItem: {
-        fontSize: 12,
-
-    },
-    sliderContainer: {
-        marginTop: 20,
-        borderLeftWidth: 10,
-        borderRightWidth: 15,
-        height: 40,
-        paddingBottom: 20,
-        borderRadius: 20,
-        backgroundColor: '#464F7A',
-        borderColor: '#464F7A',
-
-    },
-    itemWrapper: {
-        marginLeft: 10,
-        justifyContent: 'space-between',
-        alignSelf: 'stretch',
-        flexDirection: 'row',
-    },
-
 });
 
 export default ModalContainer;
