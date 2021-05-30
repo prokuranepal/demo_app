@@ -6,7 +6,7 @@ import {Dimensions} from 'react-native';
  */
 const isPortrait = () => {
   const dim = Dimensions.get('window');
-  console.log("isportrait funct", dim.height >= dim.width, dim.height,dim.width)
+  console.log("isportrait funct", dim.height >= dim.width, dim.height,dim.width);
   return dim.height >= dim.width;
 };
 
