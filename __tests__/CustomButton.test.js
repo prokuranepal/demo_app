@@ -3,9 +3,10 @@ import {
     configure,
     shallow
 } from 'enzyme';
+import {View, Text, TouchableOpacity} from 'react-native';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import CustomButton from '../components/CustomButton';
-import {findByTestAttr} from './testFunction';
+import CustomButton from '../app/components/CustomButton';
+import {findByTestAttr} from '../app/utils/testFunction';
 // JestHook.mock('expo-font');
 configure({
     adapter: new EnzymeAdapter
@@ -31,6 +32,9 @@ describe('<CustomButton />', () => {
           let textData = findByTestAttr(wrapper, "textData")
           expect(textData.length).toBe(1);
           expect(textData.props().children).toEqual("Title Test")
+          expect(wrapper.find(View)).toHaveLength(1)          
+          expect(wrapper.find(Text)).toHaveLength(1)
+          expect(wrapper.find(TouchableOpacity)).toHaveLength(1)          
       
      });
     it("Touch Component and Event test", () =>

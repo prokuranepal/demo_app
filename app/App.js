@@ -26,8 +26,7 @@ const App  = () => {
 
     // const isDarkMode = useColorScheme() === 'dark';
     const selectionHandler = (choice, type) => {
-        console.log(choice, type);
-        setisModal(false);
+            setisModal(false);
     }
 
     let backgroundCol=isModal?colors.background:colors.backgroundDim;

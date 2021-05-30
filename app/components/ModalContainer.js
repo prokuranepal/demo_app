@@ -20,7 +20,6 @@ import { colors } from '../theme/themeColors';
 
 
 const ModalContainer = props => {
-
     const [preferenceOption, setpreferenceOption] = useState(props.diet.preferences[0]);
     
     const orientation = useOrientation();
@@ -41,20 +40,22 @@ const ModalContainer = props => {
             animationType={"slide"}
             onRequestClose={() => props.actionClick(0, props.diet.dietaryHeader)}
             transparent={true}
-            visible={props.isModal}>
+            visible={props.isModal}
+            data-test="modalComp"
+            >
 
-            <TouchableOpacity style={styles.touchable} onPressOut={() => props.actionClick(0, props.diet.dietaryHeader)} />
+            <TouchableOpacity style={styles.touchable} onPressOut={() => props.actionClick(0, props.diet.dietaryHeader)} data-test="touchableComp"/>
             <View style={styles.modal}>
                 <ScrollView contentContainerStyle={styles.scrollView} >
 
-                    <View style={{ height: height * aspectRatio }}>
-                        <HeaderText>
+                    <View style={{ height: height * aspectRatio }} data-test="ratioComp">
+                        <HeaderText data-test="headerComp">
                             {props.diet.dietaryHeader}
                         </HeaderText>
-                        <HeaderText style={styles.description}>
+                        <HeaderText style={styles.description} data-test="descComp">
                             {props.diet.dietaryDescription}
                         </HeaderText>
-                        <NoteComponent title={preferenceOption.subHeader} color={preferenceOption.color}>
+                        <NoteComponent title={preferenceOption.subHeader} color={preferenceOption.color} data-test="subHeaderDescComp">
                             {preferenceOption.subHeaderDescription}
                         </NoteComponent>
                     </View>
@@ -63,6 +64,7 @@ const ModalContainer = props => {
                         color={preferenceOption.color}
                         initialValue={preferenceOption._id}
                         preferences={props.diet.preferences}
+                        data-test="sliderComp"
                     />
 
                     <View style={styles.buttonConView}>
@@ -76,6 +78,7 @@ const ModalContainer = props => {
                             buttonStyle={{ ...styles.buttonCancel, backgroundColor: preferenceOption.color }}
                             data-test="saveComp"
                             title="X"
+                            data-test="cancelComp"
                             color={colors.buttonTextColor}
                             pressHandler={() => props.actionClick(0, props.diet.dietaryHeader)} />
                     </View>
@@ -86,7 +89,7 @@ const ModalContainer = props => {
 };
 const styles = StyleSheet.create({
 
-    buttonCancel: { paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 },
+    buttonCancel: { paddingHorizontal: 17, paddingVertical: 10, borderRadius: 40 },
     buttonContainer: {
         flex: 1,
         justifyContent: 'flex-end',

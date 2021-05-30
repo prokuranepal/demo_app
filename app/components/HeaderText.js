@@ -7,7 +7,7 @@ import {fontSize} from '../theme/fonts';
 import {colors} from '../theme/themeColors'
 
 const HeaderText = props => (
-  <Text {...props} style={[styles.textHeading, props.style]}>
+  <Text {...props} style={[styles.textHeading, props.style]} data-test="headerText">
     {props.children}
   </Text>
 );
