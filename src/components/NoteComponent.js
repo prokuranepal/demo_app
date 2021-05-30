@@ -2,11 +2,11 @@ import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import {colors} from '../ThemeColors/themeColors';
 const noteComponent = props => (
-    <View  style={{...styles.noteView, borderLeftColor:props.color}} >
-        <Text style={[styles.textHeading, props.style]} >
+    <View  style={{...styles.noteView, borderLeftColor:props.color}} data-test="noteComp">
+        <Text style={[styles.textHeading, props.style]} data-test="headingComp">
              {props.title}
          </Text>
-        <Text style={[styles.textNormal, props.style]} >
+        <Text style={[styles.textNormal, props.style]} data-test="descComp">
              {props.children}
          </Text>
   </View>

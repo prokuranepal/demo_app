@@ -94,12 +94,13 @@ const CustomSlider = props => {
           minimumTrackTintColor="#464F7A"
           maximumTrackTintColor="#464F7A"
           length={length}
+          data-test="sliderComp"
         />
 
       </View>
       <View style={styles.itemWrapper}>
         {props.preferences.map((option) => {
-          return <Text key={option._id}>{option.sliderText}</Text>
+          return <Text key={option._id} data-test="textComp">{option.sliderText}</Text>
         })}
       </View>
     </View>

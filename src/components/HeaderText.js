@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 import {colors} from '../ThemeColors/themeColors'
 const headerText = props => (
-  <Text {...props} style={[styles.textHeading, props.style]}>
+  <Text {...props} style={[styles.textHeading, props.style]} data-test="headerText">
     {props.children}
   </Text>
 );

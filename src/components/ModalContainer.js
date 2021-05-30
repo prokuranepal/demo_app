@@ -14,12 +14,10 @@ import {useOrientation} from './useOrientation'
 import {colors} from '../ThemeColors/themeColors';
 
 const ModalContainer = props => {
-
     const [preferenceOption, setpreferenceOption] = useState(props.diet.preferences[0]);
     const orientation = useOrientation()
     const dim = Dimensions.get('screen');
     const dimA = Dimensions.get("window") 
-    console.log(dim.height, dim.width, orientation)
     let height=dim.height<700?152:145;
     let buttonFlexSize=dim.height<700?5:3.7;
     let aspectRatio= orientation=="PORTRAIT"?dimA.height/dimA.width:((dimA.height/dimA.width)*3)
@@ -33,20 +31,22 @@ const ModalContainer = props => {
             animationType={"slide"}
             onRequestClose={() => props.actionClick(0, props.diet.dietaryHeader)}
             transparent={true}
-            visible={props.isModal}>
+            visible={props.isModal}
+            data-test="modalComp"
+            >
 
-            <TouchableOpacity style={{ flex: 1, opacity: 0 }} onPressOut={() => props.actionClick(0, props.diet.dietaryHeader)} />
+            <TouchableOpacity style={{ flex: 1, opacity: 0 }} onPressOut={() => props.actionClick(0, props.diet.dietaryHeader)} data-test="touchableComp"/>
             <View style={styles.modal}>
                 <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 10 }} >
 
-                <View style={{height:height*aspectRatio}}>               
-                        <HeaderText>
+                <View style={{height:height*aspectRatio}} data-test="ratioComp">               
+                        <HeaderText data-test="headerComp">
                             {props.diet.dietaryHeader}
                         </HeaderText>
-                        <HeaderText style={{ fontSize: 17, paddingVertical: 10, fontWeight: "normal" }}>
+                        <HeaderText style={{ fontSize: 17, paddingVertical: 10, fontWeight: "normal" }} data-test="descComp" >
                             {props.diet.dietaryDescription}
                         </HeaderText>
-                        <NoteComponent title={preferenceOption.subHeader} color={preferenceOption.color}>
+                        <NoteComponent title={preferenceOption.subHeader} color={preferenceOption.color} data-test="subHeaderDescComp">
                             {preferenceOption.subHeaderDescription}
                         </NoteComponent>
                     </View>
@@ -55,8 +55,8 @@ const ModalContainer = props => {
                         color={preferenceOption.color}
                         initialValue={preferenceOption._id}
                         preferences={props.diet.preferences}
+                        data-test="sliderComp"
                     />
-
                     <View style={{ flex: 0.5, flexDirection: "row", justifyContent: "center" , alignItems:"flex-end", marginBottom:40}}>
                         <CustomButton container_style={{ ...styles.buttonContainer, flex: buttonFlexSize, alignItems: "center" }}
                             buttonStyle={{ backgroundColor:preferenceOption.color}}
@@ -68,6 +68,7 @@ const ModalContainer = props => {
                             buttonStyle={{ backgroundColor:preferenceOption.color, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
                             data-test="saveComp"
                             title="X"
+                            data-test="cancelComp"
                             color={colors.buttonTextColor}
                             pressHandler={props.actionClick} />
                     </View>
