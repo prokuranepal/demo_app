@@ -89,7 +89,7 @@ const ModalContainer = props => {
 };
 const styles = StyleSheet.create({
 
-    buttonCancel: { paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 },
+    buttonCancel: { paddingHorizontal: 17, paddingVertical: 10, borderRadius: 40 },
     buttonContainer: {
         flex: 1,
         justifyContent: 'flex-end',
