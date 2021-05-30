@@ -9,11 +9,20 @@ import HeaderText from './HeaderText';
 import NoteComponent from './NoteComponent';
 import CustomButton from './CustomButton';
 import CustomSlider from './Slider/CustomSlider';
+import {Dimensions} from 'react-native';
+import {useOrientation} from './useOrientation'
+import {colors} from '../ThemeColors/themeColors';
 
 const ModalContainer = props => {
 
     const [preferenceOption, setpreferenceOption] = useState(props.diet.preferences[0]);
-
+    const orientation = useOrientation()
+    const dim = Dimensions.get('screen');
+    const dimA = Dimensions.get("window") 
+    console.log(dim.height, dim.width, orientation)
+    let height=dim.height<700?152:145;
+    let buttonFlexSize=dim.height<700?5:3.7;
+    let aspectRatio= orientation=="PORTRAIT"?dimA.height/dimA.width:((dimA.height/dimA.width)*3)
     const optionSelectHandler = (value) => {
         setpreferenceOption(props.diet.preferences[value])
 
@@ -30,11 +39,11 @@ const ModalContainer = props => {
             <View style={styles.modal}>
                 <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 10 }} >
 
-                    <View style={{ height: 250 }}>
+                <View style={{height:height*aspectRatio}}>               
                         <HeaderText>
                             {props.diet.dietaryHeader}
                         </HeaderText>
-                        <HeaderText style={{ fontSize: 17, paddingTop: 7, fontWeight: "normal" }}>
+                        <HeaderText style={{ fontSize: 17, paddingVertical: 10, fontWeight: "normal" }}>
                             {props.diet.dietaryDescription}
                         </HeaderText>
                         <NoteComponent title={preferenceOption.subHeader} color={preferenceOption.color}>
@@ -48,24 +57,22 @@ const ModalContainer = props => {
                         preferences={props.diet.preferences}
                     />
 
-                    <View style={{ flex: 3, flexDirection: "row", justifyContent: "center" }}>
-                        <CustomButton container_style={{ ...styles.buttonContainer, flex: 5, alignItems: "center", margin: 10 }}
-                            buttonStyle={{ backgroundColor: preferenceOption.color }}
+                    <View style={{ flex: 0.5, flexDirection: "row", justifyContent: "center" , alignItems:"flex-end", marginBottom:40}}>
+                        <CustomButton container_style={{ ...styles.buttonContainer, flex: buttonFlexSize, alignItems: "center" }}
+                            buttonStyle={{ backgroundColor:preferenceOption.color}}
                             data-test="saveComp"
                             title="save choice"
-                            color="#fff"
-                            pressHandler={() => props.actionClick(preferenceOption._id, props.diet.dietaryHeader)} />
-                        <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "center" }}
-                            buttonStyle={{ backgroundColor: preferenceOption.color, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
+                            color={colors.buttonTextColor}
+                            pressHandler={props.actionClick} />
+                        <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "flex-start" }}
+                            buttonStyle={{ backgroundColor:preferenceOption.color, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 40 }}
                             data-test="saveComp"
                             title="X"
-                            color="#fff"
-                            pressHandler={() => props.actionClick(0, props.diet.dietaryHeader)} />
+                            color={colors.buttonTextColor}
+                            pressHandler={props.actionClick} />
                     </View>
                 </ScrollView>
-
             </View>
-
         </Modal>
     )
 };
@@ -84,7 +91,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        marginBottom: 50,
+
 
     },
 });
