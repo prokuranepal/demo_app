@@ -11,17 +11,17 @@ import {colors} from '../ThemeColors/themeColors';
 
 const LandingComp = (props) => (
     <View style={{ ...styles.sectionContainer, backgroundColor: props.backgroundCol }}>
-        <HeaderText style={{color: colors.textColor1}}>
+        <HeaderText style={{color: colors.textColor2}}>
             Let's know your dietary preferences.
         </HeaderText>
-        <HeaderText style={{ fontSize: 17, color: colors.textColor2, paddingTop: 10 }}>
+        <HeaderText style={{ fontSize: 17, paddingTop: 10 }}>
             Any ingredients you don't prefer or are allergic to?
         </HeaderText>
         {props.children}
         <CustomButton container_style={styles.buttonContainer}
             data-test="callComp"
             title="save diet"
-            color="#fff"
+            color={colors.buttonTextColor}
             pressHandler={() => props.setisModal(true)} />
     </View>
 )
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        marginBottom: 50,
+        marginBottom: 40,
     },
 
     sectionContainer: {
