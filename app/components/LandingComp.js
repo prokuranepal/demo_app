@@ -1,20 +1,26 @@
 
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
     StyleSheet,
     View,
 } from 'react-native';
+
+import PropTypes from 'prop-types';
+
 import CustomButton from './CustomButton';
 import HeaderText from './HeaderText';
-import {colors} from '../ThemeColors/themeColors';
+
+import {fontSize} from '../theme/fonts';
+import {colors} from '../theme/themeColors';
+
 
 const LandingComp = (props) => (
     <View style={{ ...styles.sectionContainer, backgroundColor: props.backgroundCol }}>
         <HeaderText style={{color: colors.textColor2}}>
             Let's know your dietary preferences.
         </HeaderText>
-        <HeaderText style={{ fontSize: 17, paddingTop: 10 }}>
+        <HeaderText style={styles.description}>
             Any ingredients you don't prefer or are allergic to?
         </HeaderText>
         {props.children}
@@ -29,6 +35,7 @@ const LandingComp = (props) => (
 
 const styles = StyleSheet.create({
 
+    description:{fontSize: fontSize.buttonText, paddingTop: 10},
     buttonContainer: {
         flex: 1,
         justifyContent: 'flex-end',
@@ -40,9 +47,15 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 64,
         paddingHorizontal: 48,
-        backgroundColor: "#f3f3fb"
+        backgroundColor: colors.section
     },
 
 });
+
+LandingComp.propTypes = {
+    backgroundCol : PropTypes.string,
+    children: PropTypes.any,
+    setisModal: PropTypes.func
+  }
 
 export default LandingComp;

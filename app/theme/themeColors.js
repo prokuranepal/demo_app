@@ -6,5 +6,6 @@ export const colors = {
     backgroundDim: "#f3f3fb",
     defaultBorder: "#464f7a",
     note: "#ebebec",
-    buttonTextColor: "#fff"
+    buttonTextColor: "#fff",
+    section: "#f3f3fb"
 }

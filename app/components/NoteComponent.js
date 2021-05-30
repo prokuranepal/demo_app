@@ -1,7 +1,12 @@
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
-import {colors} from '../ThemeColors/themeColors';
-const noteComponent = props => (
+
+import PropTypes from 'prop-types';
+
+import {fontSize} from '../theme/fonts';
+import {colors} from '../theme/themeColors';
+
+const NoteComponent = props => (
     <View  style={{...styles.noteView, borderLeftColor:props.color}} >
         <Text style={[styles.textHeading, props.style]} >
              {props.title}
@@ -24,15 +29,22 @@ const styles = StyleSheet.create({
     },
 
   textNormal: {
-    fontSize:15, 
+    fontSize:fontSize.noteDescription, 
     color:colors.textColor1, 
   },
   
   textHeading: {
-    fontSize:18, 
+    fontSize:fontSize.noteHeading, 
     color: colors.textColor1, 
     fontWeight:"bold"
   }
 });
 
-export default noteComponent;
+NoteComponent.propTypes = {
+  style: PropTypes.object,
+  children: PropTypes.any,
+  color: PropTypes.string,
+  title: PropTypes.string
+}
+
+export default NoteComponent;
