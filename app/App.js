@@ -8,15 +8,18 @@
 
 import React, {useState} from 'react';
 import {
+    Platform,
     SafeAreaView,
     StatusBar,
     StyleSheet,
-    View,
 } from 'react-native';
-import ModalContainer from './components/ModalContainer';
+
 import LandingComp from './components/LandingComp';
+import ModalContainer from './components/ModalContainer';
+
+import {colors} from './theme/themeColors';
 import {gluten_data} from './data/dummy_data';
-import {colors} from './ThemeColors/themeColors';
+
 const App  = () => {
     const [isModal, setisModal] = useState(false);
     const isDarkMode =true;
@@ -49,6 +52,21 @@ const styles = StyleSheet.create({
 
     mainContainer: {
         flex:1,
+        ...Platform.select({
+
+            ios: {
+       
+              fontFamily: 'Arial',
+       
+            },
+       
+            android: {
+       
+              fontFamily: 'Roboto',
+       
+            },
+       
+          })
     },
 });
 

@@ -5,8 +5,8 @@ import {
 } from 'enzyme';
 import {View, Text, TouchableOpacity} from 'react-native';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import CustomButton from '../src/components/CustomButton';
-import {findByTestAttr} from '../src/utils/testFunction';
+import CustomButton from '../app/components/CustomButton';
+import {findByTestAttr} from '../app/utils/testFunction';
 // JestHook.mock('expo-font');
 configure({
     adapter: new EnzymeAdapter

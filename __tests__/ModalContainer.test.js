@@ -5,16 +5,15 @@ import {
 } from 'enzyme';
 import {View, Modal, ScrollView} from 'react-native';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import HeaderText from '../src/components/HeaderText';
-import CustomButton from '../src/components/CustomButton';
+import HeaderText from '../app/components/HeaderText';
+import CustomButton from '../app/components/CustomButton';
 jest.mock("Dimensions")
 
-import ModalContainer from '../src/components/ModalContainer';
-import NoteComponent from '../src/components/NoteComponent';
-import CustomSlider from '../src/components/Slider/CustomSlider'
-import {gluten_data} from '../src/data/dummy_data';
+import ModalContainer from '../app/components/ModalContainer';
+import NoteComponent from '../app/components/NoteComponent';
+import CustomSlider from '../app/components/slider/CustomSlider'
 import {act} from 'react-dom/test-utils';
-import {findByTestAttr} from '../src/utils/testFunction';
+import {findByTestAttr} from '../app/utils/testFunction';
 // JestHook.mock('expo-font');
 configure({
     adapter: new EnzymeAdapter

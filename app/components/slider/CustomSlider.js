@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+
+import PropTypes from 'prop-types';
+
 import Slider from './SliderContainer';;
 
 const CustomSlider = props => {
@@ -37,51 +40,15 @@ const CustomSlider = props => {
       sign = 1
     }
     // console.log(value, v)
-    setState({ ...state, value: value, adjustSign: sign })
-    props.selectState(Math.round(value))
+    setState({ ...state, value: value, adjustSign: sign });
+    props.selectState(Math.round(value));
   }
 
-  const styles = StyleSheet.create({
-    itemWrapper: {
-      marginLeft: 8,
-      justifyContent: 'space-between',
-      alignSelf: 'stretch',
-      flexDirection: 'row',
-      marginBottom:20,
-      marginTop:8
-    },
-    item: {
-      color: props.color
-    },
-    sliderContainer: {
-      marginTop: 20,
-      height: 30,
-      display: 'flex',
-      justifyContent: 'center',
-      borderLeftWidth: 15,
-      borderRightWidth: 15,
-      borderRadius: 16,
-      borderColor: props.color,
-    },
-    track: {
-      height: 30,
-      backgroundColor: props.color,
-      display: 'flex',
-      justifyContent: 'center',
-    },
-    thumb: {
-      width: 20,
-      height: 20,
-      backgroundColor: props.color,
-      borderColor: 'white',
-      borderWidth: 7,
-      borderRadius: 10,
-    }
-  });
+  
 
   return (
-    <View style={{flex:1, justifyContent:"center"}}>
-      <View style={styles.sliderContainer}>
+    <View style={styles.mainView}>
+      <View style={{...styles.sliderContainer,borderColor: props.color}}>
 
         <Slider
           color={props.color}
@@ -89,8 +56,8 @@ const CustomSlider = props => {
           minimumValue={0}
           maximumValue={maximumValue}
           onSlidingComplete={(value) => choice(value)}
-          trackStyle={styles.track}
-          thumbStyle={styles.thumb}
+          trackStyle={{...styles.track,backgroundColor: props.color}}
+          thumbStyle={{...styles.thumb,backgroundColor: props.color}}
           minimumTrackTintColor="#464F7A"
           maximumTrackTintColor="#464F7A"
           length={length}
@@ -105,8 +72,49 @@ const CustomSlider = props => {
       </View>
     </View>
   )
-}
+};
 
+const styles = StyleSheet.create({
+  mainView: {
+    flex:1, justifyContent:"center"
+  },
+  itemWrapper: {
+    marginLeft: 8,
+    justifyContent: 'space-between',
+    alignSelf: 'stretch',
+    flexDirection: 'row',
+    marginBottom:20,
+    marginTop:8
+  },
+  sliderContainer: {
+    marginTop: 20,
+    height: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    borderLeftWidth: 15,
+    borderRightWidth: 15,
+    borderRadius: 16,
+  },
+  track: {
+    height: 30,
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  thumb: {
+    width: 20,
+    height: 20,  
+    borderColor: 'white',
+    borderWidth: 7,
+    borderRadius: 10,
+  }
+});
+
+CustomSlider.propTypes = {
+  preferences: PropTypes.array,
+  color: PropTypes.string,
+  initialValue: PropTypes.number,
+  selectState: PropTypes.func
+}
 
 
 export default CustomSlider;

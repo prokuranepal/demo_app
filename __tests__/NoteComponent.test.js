@@ -5,8 +5,8 @@ import {
     shallow
 } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import NoteComponent from '../src/components/NoteComponent';
-import {findByTestAttr} from '../src/utils/testFunction';
+import NoteComponent from '../app/components/NoteComponent';
+import {findByTestAttr} from '../app/utils/testFunction';
 // JestHook.mock('expo-font');
 configure({
     adapter: new EnzymeAdapter

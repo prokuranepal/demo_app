@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {configure, shallow} from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import CustomSlider from '../src/components/Slider/CustomSlider';
-import Slider from '../src/components/Slider/SliderContainer';
+import CustomSlider from '../app/components/slider/CustomSlider';
+import Slider from '../app/components/slider/SliderContainer';
 
-import {findByTestAttr} from '../src/utils/testFunction';
+import {findByTestAttr} from '../app/utils/testFunction';
 // JestHook.mock('expo-font');
 configure({adapter: new EnzymeAdapter})
 

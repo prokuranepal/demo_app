@@ -5,12 +5,12 @@ import {
 } from 'enzyme';
 import {View,Text} from 'react-native';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import HeaderText from '../src/components/HeaderText';
-import CustomButton from '../src/components/CustomButton';
-import LandingComp from '../src/components/LandingComp';
+import HeaderText from '../app/components/HeaderText';
+import CustomButton from '../app/components/CustomButton';
+import LandingComp from '../app/components/LandingComp';
 
 
-import {findByTestAttr} from '../src/utils/testFunction';
+import {findByTestAttr} from '../app/utils/testFunction';
 // JestHook.mock('expo-font');
 configure({
     adapter: new EnzymeAdapter

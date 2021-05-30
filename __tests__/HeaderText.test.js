@@ -5,8 +5,8 @@ import {
 } from 'enzyme';
 import {Text} from 'react-native';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import HeaderText from '../src/components/HeaderText';
-import {findByTestAttr} from '../src/utils/testFunction';
+import HeaderText from '../app/components/HeaderText';
+import {findByTestAttr} from '../app/utils/testFunction';
 // JestHook.mock('expo-font');
 configure({
     adapter: new EnzymeAdapter
