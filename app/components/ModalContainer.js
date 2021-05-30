@@ -71,13 +71,13 @@ const ModalContainer = props => {
                             data-test="saveComp"
                             title="save choice"
                             color={colors.buttonTextColor}
-                            pressHandler={props.actionClick} />
+                            pressHandler={() => props.actionClick(0, props.diet.dietaryHeader)} />
                         <CustomButton container_style={{ ...styles.buttonContainer, flex: 1, alignItems: "flex-start" }}
                             buttonStyle={{ ...styles.buttonCancel, backgroundColor: preferenceOption.color }}
                             data-test="saveComp"
                             title="X"
                             color={colors.buttonTextColor}
-                            pressHandler={props.actionClick} />
+                            pressHandler={() => props.actionClick(preferenceOption._id, props.diet.dietaryHeader)} />
                     </View>
                 </ScrollView>
             </View>
