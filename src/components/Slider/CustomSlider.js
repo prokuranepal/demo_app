@@ -4,25 +4,17 @@ import Slider from './SliderContainer';;
 
 const CustomSlider = props => {
 
-  const defaultValue = 0
-  const maximumValue = 3;
-  const length = 4
+  const maximumValue = props.preferences.length - 1;
+  const length = props.preferences.length;
   const sliderRatio = maximumValue / (length - 1);
+
   const [state, setState] = useState({
     value: props.initialValue,
     adjustSign: 1
   });
-  console.log("state value",state.value)
-  const sliderOptions = [
-    { value: 0, label: 'Eat' },
-    { value: 1, label: 'Don\'t Prefer' },
-    { value: 2, label: 'Intolerant' },
-    { value: 3, label: 'Severe\nAllergy' },
-  ];
 
   const choice = (v) => {
     const halfRatio = sliderRatio / 2;
-    // console.log(halfRatio);
     let i = 0;
     for (; ;) {
       if ((v < sliderRatio) || (v <= 0)) {
@@ -44,7 +36,7 @@ const CustomSlider = props => {
     } else {
       sign = 1
     }
-    // console.log(value);
+    // console.log(value, v)
     setState({ ...state, value: value, adjustSign: sign })
     props.selectState(Math.round(value))
   }
@@ -66,9 +58,9 @@ const CustomSlider = props => {
       height: 30,
       display: 'flex',
       justifyContent: 'center',
-      borderLeftWidth: 17,
-      borderRightWidth: 17,
-      borderRadius: 20,
+      borderLeftWidth: 15,
+      borderRightWidth: 15,
+      borderRadius: 16,
       borderColor: props.color,
     },
     track: {
@@ -95,18 +87,19 @@ const CustomSlider = props => {
           color={props.color}
           value={state.value}
           minimumValue={0}
-          maximumValue={3}
+          maximumValue={maximumValue}
           onSlidingComplete={(value) => choice(value)}
           trackStyle={styles.track}
           thumbStyle={styles.thumb}
           minimumTrackTintColor="#464F7A"
           maximumTrackTintColor="#464F7A"
+          length={length}
         />
 
       </View>
       <View style={styles.itemWrapper}>
-        {sliderOptions.map((option) => {
-          return <Text key={option.value}>{option.label}</Text>
+        {props.preferences.map((option) => {
+          return <Text key={option._id}>{option.sliderText}</Text>
         })}
       </View>
     </View>
